@@ -7,8 +7,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import com.spring.finance.product.domain.ProductVO;
-import com.spring.finance.product.util.Criteria;
+import com.spring.finance.domain.ProductVO;
+import com.spring.finance.service.ProductService;
+import com.spring.finance.util.Criteria;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
