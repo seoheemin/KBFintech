@@ -1,0 +1,32 @@
+﻿[라이브러리]
+
+JDK 1.8
+Tomcat 9.0
+Spring 5.0.7
+Spring-Test 5.0.7
+Spring-JDBC
+Spring-Mybatis
+Spring-tx
+Mybatis
+log4jdbc
+HikariCP
+lombok
+JUnit 4.12
+Servlet 3.1.0
+Jackson-Bind
+JSTL
+인코딩 UTF-8
+ojdbc8 // 저 혼자할때는 직접 추가했는데, WEB-INF 폴더 아래 lib 폴더에 ojdbc8 추가해놨습니다.
+
+[프로젝트 구조]
+Mybatis 인터페이스 방식 및 폴더 구조
+root-context.xml mapper 스캔
+web.xml filter 적용
+views 폴더
+서비스별 패키지 분류 (controller, domain, service, mapper)
+webapp/resources 폴더 (디자인 템플릿 두 가지 sb-admin, modern-business)
+
+[JSP 페이지 구조]
+header.jsp
+
+

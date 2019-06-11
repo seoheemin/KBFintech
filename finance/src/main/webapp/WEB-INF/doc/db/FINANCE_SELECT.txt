@@ -1,0 +1,43 @@
+﻿SELECT * FROM MEMBER;
+
+SELECT * FROM M_CARD;
+
+SELECT * FROM PLAN;
+
+SELECT * FROM PLAN_DETAIL;
+
+SELECT * FROM BUSINESS;
+
+SELECT * FROM M_PRODUCT;
+
+SELECT * FROM PRODUCT;
+
+SELECT * FROM PAYMENT;
+
+/*user01 사용자가 가입한 상품 조회*/
+SELECT *
+FROM MEMBER M, M_PRODUCT M_P
+WHERE M.M_ID='user01' AND M.M_ID = M_P.M_ID;
+
+/*user01 사용자가 가입한 상품의 이율 조회*/
+SELECT P.PR_INTEREST AS "이율"
+FROM MEMBER M, M_PRODUCT M_P, PRODUCT P
+WHERE M.M_ID='user01' AND M.M_ID = M_P.M_ID AND P.PR_ID = M_P.PR_ID;
+
+/*user01 사용자가 등록한 모든 카드 정보 조회*/
+SELECT * FROM M_CARD WHERE M_CARD.M_ID = 'user01';
+
+/*USER01 사용자가 5월 1일에 결제한 사용금액의 총합*/
+SELECT SUM(PAY_PRICE)
+FROM PAYMENT 
+WHERE M_ID = 'user01' AND PAY_DATE = TO_DATE('2019-05-01', 'YYYY-MM-DD');
+
+/*USER01 사용자가 5월에 국민카드로 사용한 금액의 총합*/
+SELECT SUM(P.PAY_PRICE)
+FROM PAYMENT P
+WHERE P.C_ID IN (SELECT C_ID 
+                FROM M_CARD 
+                WHERE M_ID='user01'
+                AND C_COMPANY='국민'
+                )
+AND P.PAY_DATE BETWEEN TO_DATE('2019-05-01', 'YYYY-MM-DD') AND TO_DATE('2019-05-31', 'YYYY-MM-DD');
