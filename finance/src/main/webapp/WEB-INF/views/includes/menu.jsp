@@ -15,7 +15,7 @@
         <ul class="navbar-nav ml-auto">
           
           <li class="nav-item">
-            <a class="nav-link" href="">카드 등록</a>
+            <a class="nav-link" href="${path }/card/register">카드 등록</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="${path }/product/question">상품 목록</a>
