@@ -1,19 +1,6 @@
 package com.spring.finance.service;
 
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.spring.finance.domain.ProductVO;
-import com.spring.finance.mapper.ProductMapper;
-import com.spring.finance.util.Criteria;
-import com.spring.finance.util.RequestAPI;
 
 import lombok.extern.log4j.Log4j;
 
@@ -27,30 +14,6 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 public class ProductServiceImpl implements ProductService {
 
-	@Autowired
-	ProductMapper mapper;
-
-	// https://www.baeldung.com/jackson-nested-values
-	// https://thepracticaldeveloper.com/2018/07/31/java-and-json-jackson-serialization-with-objectmapper/
-	// http://www.studytrails.com/java/json/java-jackson-serialization-list/
-
-	@Override
-	public ProductVO getProductList(Criteria cri) {
-
-		Map<String, String> param = new HashMap<String, String>();
-		param.put("topFinGrpNo", "020000");
-		param.put("pageNo", String.valueOf(cri.getPageNum()));
-		param.put("amount", String.valueOf(cri.getAmount()));
-		ResponseEntity<String> response = RequestAPI.getProductList(param);
-		ProductVO productVO = new ProductVO();
-		try {
-			JsonNode productNode = new ObjectMapper().readTree(response.getBody());
-			ObjectMapper mapper = new ObjectMapper();
-			productVO = mapper.readValue(productNode.get("result").toString(), ProductVO.class);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return productVO;
-	}
+	
 
 }

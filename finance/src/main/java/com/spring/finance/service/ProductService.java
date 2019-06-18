@@ -5,5 +5,5 @@ import com.spring.finance.util.Criteria;
 
 public interface ProductService {
 
-	public ProductVO getProductList(Criteria cri);
+
 }

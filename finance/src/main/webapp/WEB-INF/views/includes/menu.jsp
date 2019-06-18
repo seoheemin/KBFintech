@@ -21,7 +21,7 @@
             <a class="nav-link" href="${path }/product/question">상품 목록</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact.html">플랜 작성</a>
+            <a class="nav-link" href="${path}/plan/planer">플랜 작성</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
